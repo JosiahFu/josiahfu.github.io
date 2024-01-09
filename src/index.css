@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply snap-y snap-proximity;
+    }
+    
+    body {
+        @apply bg-gray-900;
+    }
+}
