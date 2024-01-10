@@ -1,17 +1,25 @@
 import AnchorEmbed from './components/AnchorEmbed.tsx';
 import Embed from './components/Embed.tsx';
-import Section from './Section.tsx';
+import Section from './components/Section.tsx';
 import './index.css';
-import images from './images.ts';
+import * as images from './images.ts';
 import Card from './components/Card.tsx';
 import Article from './components/Article.tsx';
+import Sideways from './components/Sideways.tsx';
 
 function App() {
     return (
         <main className='flex flex-col gap-16 text-gray-100 items-center'>
-            <Section className='grid items-center'>
-                <h1 className='text-center text-8xl'>Josiah Fu</h1>
-            </Section>
+            <Sideways>
+                <Section className='grid items-center'>
+                    <h1 className='text-center text-8xl'>Josiah Fu</h1>
+                </Section>
+                <Embed url='https://desmos.com/calculator'>
+                    <Card img={images.desmos1} title='3D Island'>
+                        3D Island!
+                    </Card>
+                </Embed>
+            </Sideways>
             <Article title='Starting from Scratch'>
                 <p className='col-span-full'>
                     I first learned coding on Scratch, which uses block code.
@@ -71,6 +79,18 @@ function App() {
             </Article>
             <Article title='HTML + Vanilla JS'>
                 <p className='col-span-full'>Placeholder</p>
+                <Embed url='https://josiahfu.github.io/webpage-projects-archive/clipboard-switcher/'>
+                    <Card
+                        title='Clipboard Switcher'
+                        img={images.clipboard}
+                        className='md:max-lg:stagger-right'></Card>
+                </Embed>
+                <Embed url='https://josiahfu.github.io/webpage-projects-archive/ukulele-chords/'>
+                    <Card
+                        title='Ukulele Chords'
+                        img={images.ukulele}
+                        className='md:max-lg:stagger-left'></Card>
+                </Embed>
                 <Embed url='https://josiahfu.github.io/mc-schematic/'>
                     <Card
                         title='MC Schematic'
@@ -81,18 +101,6 @@ function App() {
                     <Card
                         title='Chicken Machine'
                         img={images.chickenmachine}
-                        className='md:max-lg:stagger-right'></Card>
-                </Embed>
-                <Embed url='https://josiahfu.github.io/webpage-projects-archive/ukulele-chords/'>
-                    <Card
-                        title='Ukulele Chords'
-                        img={images.mcschematic}
-                        className='md:max-lg:stagger-left'></Card>
-                </Embed>
-                <Embed url='https://josiahfu.github.io/webpage-projects-archive/clipboard-switcher/'>
-                    <Card
-                        title='Clipboard Switcher'
-                        img={images.mcschematic}
                         className='md:max-lg:stagger-right'></Card>
                 </Embed>
             </Article>

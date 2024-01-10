@@ -1,8 +1,10 @@
-import desmos1 from './assets/desmos1.png';
-import seagullShooter from './assets/seagull_shooter.png';
-import camera from './assets/camera.png';
-import fireworks from './assets/fireworks.png';
-import tictactoe from './assets/tictactoe.png';
-import minesweeper from './assets/minesweeper.png';
-
-export default { desmos1, seagullShooter, camera, fireworks, tictactoe, minesweeper }
+export { default as desmos1 } from './assets/desmos1.png';
+export { default as seagullShooter } from './assets/seagull_shooter.png';
+export { default as camera } from './assets/camera.png';
+export { default as fireworks } from './assets/fireworks.png';
+export { default as tictactoe } from './assets/tictactoe.png';
+export { default as minesweeper } from './assets/minesweeper.png';
+export { default as mcschematic } from './assets/mc_schematic.png';
+export { default as chickenmachine } from './assets/chicken_machine.png';
+export { default as ukulele } from './assets/ukulele.png';
+export { default as clipboard } from './assets/clipboard.png';
