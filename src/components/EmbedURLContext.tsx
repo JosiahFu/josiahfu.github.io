@@ -1,5 +1,5 @@
-import { createContext } from 'react';
+import { MouseEventHandler, createContext } from 'react';
 
-export const EmbedURLContext = createContext<(() => void) | undefined>(
+export const EmbedURLContext = createContext<MouseEventHandler | undefined>(
     undefined
 );

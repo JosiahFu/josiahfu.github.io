@@ -14,9 +14,60 @@ function App() {
                 <Section className='grid items-center'>
                     <h1 className='text-center text-8xl'>Josiah Fu</h1>
                 </Section>
-                <Embed url='https://desmos.com/calculator'>
-                    <Card img={images.desmos1} title='3D Island'>
-                        3D Island!
+                <Embed url='https://www.desmos.com/calculator/lpe1hwpbvx'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/lpe1hwpbvx.png'
+                        title='3D Island'>
+                        3D engine!
+                    </Card>
+                </Embed>
+                <Embed url='dna.webm'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/bzyyvej3ag.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/2wstj2efds'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/2wstj2efds.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/ykj4gctfwl'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/ykj4gctfwl.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/7ykgc1wnoc'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/7ykgc1wnoc.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/wcate9j3kt'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/wcate9j3kt.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/w0qggxbvet'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/w0qggxbvet.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/obmoil6kcr'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/obmoil6kcr.png'
+                        title='Atom Models'>
+                        Atom Models
                     </Card>
                 </Embed>
             </Sideways>
@@ -26,6 +77,12 @@ function App() {
                     While the engine is certainly limited, it is suprisingly
                     versatile, allowing me to make over a hundred projects on
                     Scratch.
+                    <br />
+                    <em>
+                        These link to{' '}
+                        <a href='https://turbowarp.org/'>Turbowarp</a>, a
+                        Scratch mod that makes projects run faster and smoother
+                    </em>
                 </p>
                 <Embed url='https://turbowarp.org/415592008/embed'>
                     <Card
@@ -112,7 +169,11 @@ function App() {
             </Article>
             <Article title='4201 Scouting System'></Article>
             <Article title='Web Apps'>
-                <Embed url='https://josiahfu.github.io/math-notes'></Embed>
+                <Embed url='https://josiahfu.github.io/math-notes'>
+                    <Card title='Math Notes' img='the_image'>
+                        Potat oes
+                    </Card>
+                </Embed>
                 <Embed url='https://josiahfu.github.io/super-tic-tac-toe'></Embed>
                 <Embed url='https://josiahfu.github.io/all-timer'></Embed>
             </Article>

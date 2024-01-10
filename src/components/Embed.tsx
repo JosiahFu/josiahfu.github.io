@@ -20,9 +20,16 @@ function Embed({
 
     return (
         <>
-            <EmbedURLContext.Provider value={() => setOpen(true)}>
-                {children}
-            </EmbedURLContext.Provider>
+            <a href={url} className='contents'>
+                <EmbedURLContext.Provider
+                    value={event => {
+                        if (event.ctrlKey) return;
+                        event.preventDefault();
+                        setOpen(true);
+                    }}>
+                    {children}
+                </EmbedURLContext.Provider>
+            </a>
             <dialog
                 ref={dialogRef}
                 onClick={() => setOpen(false)}

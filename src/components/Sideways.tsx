@@ -24,7 +24,7 @@ function Sideways({ children }: PropsWithChildren) {
 
     return (
         <div
-            className={`flex flex-row *:flex-shrink-0 overflow-y-hidden self-start items-center w-max`}>
+            className={`flex flex-row *:flex-shrink-0 overflow-y-hidden self-start items-center w-max gap-16 pr-64`}>
             {children}
         </div>
     );
