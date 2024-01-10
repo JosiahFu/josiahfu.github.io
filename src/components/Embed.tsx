@@ -1,11 +1,15 @@
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { EmbedURLContext } from './EmbedURLContext';
 
+function nothing() {}
+
 function Embed({
     url,
+    nodialog = false,
     children,
 }: PropsWithChildren<{
     url: string;
+    nodialog?: boolean;
 }>) {
     const [open, setOpen] = useState(false);
     const dialogRef = useRef<HTMLDialogElement>(null);
@@ -20,37 +24,43 @@ function Embed({
 
     return (
         <>
-            <a href={url} className='contents'>
+            <a href={url} className='contents' target='_blank'>
                 <EmbedURLContext.Provider
-                    value={event => {
-                        if (event.ctrlKey) return;
-                        event.preventDefault();
-                        setOpen(true);
-                    }}>
+                    value={
+                        nodialog
+                            ? nothing
+                            : event => {
+                                  if (event.ctrlKey) return;
+                                  event.preventDefault();
+                                  setOpen(true);
+                              }
+                    }>
                     {children}
                 </EmbedURLContext.Provider>
             </a>
-            <dialog
-                ref={dialogRef}
-                onClick={() => setOpen(false)}
-                onClose={() => setOpen(false)}
-                className='bg-transparent backdrop:bg-black/50 overflow-visible'>
-                {
-                    open && (
-                        <iframe
-                            src={url}
-                            className={`h-[75vh] w-[75vw] rounded-2xl bg-white`}
-                            allowFullScreen
-                            onClick={event => event.stopPropagation()}
-                        />
-                    ) /*Only load iframe when dialog shown*/
-                }
-                <button
+            {nodialog ? undefined : (
+                <dialog
+                    ref={dialogRef}
                     onClick={() => setOpen(false)}
-                    className='absolute -right-4 -top-4 w-8 h-8 bg-gray-500 text-white rounded-full'>
-                    X
-                </button>
-            </dialog>
+                    onClose={() => setOpen(false)}
+                    className='bg-transparent backdrop:bg-black/50 overflow-visible'>
+                    {
+                        open && (
+                            <iframe
+                                src={url}
+                                className={`h-[75vh] w-[75vw] rounded-2xl bg-white`}
+                                allowFullScreen
+                                onClick={event => event.stopPropagation()}
+                            />
+                        ) /*Only load iframe when dialog shown*/
+                    }
+                    <button
+                        onClick={() => setOpen(false)}
+                        className='absolute -right-4 -top-4 w-8 h-8 bg-gray-500 text-white rounded-full'>
+                        X
+                    </button>
+                </dialog>
+            )}
         </>
     );
 }

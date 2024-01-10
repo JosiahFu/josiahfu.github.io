@@ -1,4 +1,3 @@
-import AnchorEmbed from './components/AnchorEmbed.tsx';
 import Embed from './components/Embed.tsx';
 import Section from './components/Section.tsx';
 import './index.css';
@@ -11,7 +10,7 @@ function App() {
     return (
         <main className='flex flex-col gap-16 text-gray-100 items-center'>
             <Sideways>
-                <Section className='grid items-center'>
+                <Section className='grid items-center bg-banner'>
                     <h1 className='text-center text-8xl'>Josiah Fu</h1>
                 </Section>
                 <Embed url='https://www.desmos.com/calculator/lpe1hwpbvx'>
@@ -70,6 +69,13 @@ function App() {
                         Atom Models
                     </Card>
                 </Embed>
+                <Embed url='https://www.desmos.com/calculator/zutvfcydsx'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/zutvfcydsx.png'
+                        title='Atom Models'>
+                        Atom Models
+                    </Card>
+                </Embed>
             </Sideways>
             <Article title='Starting from Scratch'>
                 <p className='col-span-full'>
@@ -95,7 +101,9 @@ function App() {
                         violence/animal cruelty and partially done for whimsy.
                     </Card>
                 </Embed>
-                <AnchorEmbed url='https://turbowarp.org/424751563/fullscreen?stuck'>
+                <Embed
+                    url='https://turbowarp.org/424751563/fullscreen?stuck'
+                    nodialog>
                     <Card
                         title='Camera'
                         img={images.camera}
@@ -106,7 +114,7 @@ function App() {
                         certain spot, so it cycles through every possible color
                         on each pixel.
                     </Card>
-                </AnchorEmbed>
+                </Embed>
                 <Embed url='https://turbowarp.org/408509455/embed?hqpen'>
                     <Card
                         title='Fireworks'
