@@ -5,7 +5,7 @@ function Section({
     className = '',
 }: PropsWithChildren<{ className?: string }>) {
     return (
-        <section className={`${className} snap-start min-h-screen relative`}>
+        <section className={`${className} snap-start min-h-screen `}>
             {children}
         </section>
     );

@@ -1,23 +1,9 @@
-import { ImgHTMLAttributes } from 'react';
+import { PropsWithChildren } from 'react';
 
-function AnchorEmbed({
-    url,
-    img,
-    className = '',
-    alt,
-    ...otherProps
-}: { url: string; img: string } & Omit<
-    ImgHTMLAttributes<HTMLImageElement>,
-    'src' | 'onClick'
->) {
+function AnchorEmbed({ url, children }: PropsWithChildren<{ url: string }>) {
     return (
-        <a href={url} target='_blank'>
-            <img
-                src={img}
-                alt={alt}
-                className={`${className} cursor-pointer hover:shadow-white shadow-md transition`}
-                {...otherProps}
-            />
+        <a href={url} target='_blank' className='contents'>
+            {children}
         </a>
     );
 }

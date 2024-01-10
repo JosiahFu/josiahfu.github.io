@@ -1,16 +1,12 @@
-import { ImgHTMLAttributes, useEffect, useRef, useState} from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { EmbedURLContext } from './EmbedURLContext';
 
 function Embed({
     url,
-    img,
-    className = '',
-    iframeClassName = 'h-[75vh] w-[75vw]',
-    alt,
-    ...otherProps
-}: { url: string; img: string; iframeClassName?: string } & Omit<
-    ImgHTMLAttributes<HTMLImageElement>,
-    'src' | 'onClick'
->) {
+    children,
+}: PropsWithChildren<{
+    url: string;
+}>) {
     const [open, setOpen] = useState(false);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -24,13 +20,9 @@ function Embed({
 
     return (
         <>
-            <img
-                src={img}
-                alt={alt}
-                className={`${className} cursor-pointer hover:shadow-white shadow-md transition `}
-                onClick={() => setOpen(true)}
-                {...otherProps}
-            />
+            <EmbedURLContext.Provider value={() => setOpen(true)}>
+                {children}
+            </EmbedURLContext.Provider>
             <dialog
                 ref={dialogRef}
                 onClick={() => setOpen(false)}
@@ -40,7 +32,7 @@ function Embed({
                     open && (
                         <iframe
                             src={url}
-                            className={`${iframeClassName} rounded-2xl`}
+                            className={`h-[75vh] w-[75vw] rounded-2xl bg-white`}
                             allowFullScreen
                             onClick={event => event.stopPropagation()}
                         />

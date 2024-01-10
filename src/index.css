@@ -11,3 +11,17 @@
         @apply bg-gray-900;
     }
 }
+
+@layer utilities {
+    .stagger {
+        @apply grid grid-cols-3;
+    }
+    
+    .stagger-left {
+        @apply col-span-2;
+    }
+    
+    .stagger-right {
+        @apply col-span-2 col-start-2;
+    }
+}
