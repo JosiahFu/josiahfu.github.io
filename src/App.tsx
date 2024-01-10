@@ -1,10 +1,10 @@
-import AnchorEmbed from './AnchorEmbed.tsx';
-import Embed from './Embed.tsx';
+import AnchorEmbed from './components/AnchorEmbed.tsx';
+import Embed from './components/Embed.tsx';
 import Section from './Section.tsx';
 import './index.css';
 import images from './images.ts';
-import Card from './Card.tsx';
-import Article from './Article.tsx';
+import Card from './components/Card.tsx';
+import Article from './components/Article.tsx';
 
 function App() {
     return (

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import Section from './Section';
+import Section from '../Section';
 
 function Article({
     title,
