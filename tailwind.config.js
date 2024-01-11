@@ -6,9 +6,10 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                banner: "url('/banner.png')",
-                'geometric-down': "url('/gradient1.png')",
-                'geometric-right': "url('/gradient2.png')",
+                // Paths must be relative to index.css
+                banner: "url('./assets/banner.png')",
+                'geometric-down': "url('./assets/gradient1.png')",
+                'geometric-right': "url('./assets/gradient2.png')",
             },
             colors: {
                 'spring-green': {
