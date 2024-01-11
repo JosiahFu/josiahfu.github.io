@@ -19,7 +19,7 @@ function Card({
 
     return (
         <div
-            className={`${className} flex flex-col gap-4 rounded-3xl border-2px border-spring-green-400 bg-white/10 p-8 backdrop-blur-md ${
+            className={`${className} flex basis-[28rem] flex-col gap-4 rounded-3xl border-2px border-spring-green-400 bg-white/10 p-8 backdrop-blur-md ${
                 handleClick
                     ? 'cursor-pointer transition duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-white/50'
                     : ''

@@ -2,7 +2,7 @@ import Embed from './components/Embed.tsx';
 import Section from './components/Section.tsx';
 import './index.css';
 import '@fontsource/raleway';
-import * as images from './images.ts';
+import * as assets from './assets.ts';
 import Card from './components/Card.tsx';
 import Article from './components/Article.tsx';
 import { useEventUpdatedValue } from './useEventValue.ts';
@@ -38,7 +38,7 @@ function App() {
     return (
         <main className='grid grid-cols-1 text-gray-100 md:grid-cols-[100vw_auto] md:grid-rows-[100vh_auto]'>
             {breakMd && <ScrollLocker />}
-            <Section className='bg-float z-20 grid items-center overflow-hidden bg-banner p-16 lg:px-64'>
+            <Section className='bg-float z-20 grid items-center overflow-hidden bg-banner p-16 md:px-40 lg:px-80'>
                 <h1 className='rounded-3xl bg-white/10 p-16 text-center text-8xl backdrop-blur-md'>
                     <Logo className='mr-8 inline-block h-24' />
                     Josiah Fu
@@ -46,39 +46,50 @@ function App() {
                 <Arrow
                     className='translate-center absolute right-12 top-1/2 hidden cursor-pointer md:block'
                     directionClassName='-rotate-45 '
-                    onClick={scrollRight}
-                />
+                    onClick={scrollRight}>
+                    <span className='absolute -left-32 w-32 rounded-lg bg-white/10 p-4 text-center backdrop-blur-md'>
+                        Scroll RIGHT for Desmos
+                    </span>
+                </Arrow>
                 <Arrow
                     className='translate-center absolute bottom-12 left-1/2 hidden cursor-pointer md:block'
                     directionClassName='rotate-45'
-                    onClick={scrollDown}
-                />
+                    onClick={scrollDown}>
+                    <span className='absolute -top-20 w-36 rounded-lg bg-white/10 p-4 text-center backdrop-blur-md'>
+                        Scroll DOWN for Code
+                    </span>
+                </Arrow>
             </Section>
-            {/* <Arrow className='rotate-135 fixed left-12 top-12' onClick={scrollStart} /> */}
-            <div className='bg-float flex flex-col items-center overflow-hidden bg-geometric-down md:row-start-2'>
-                <Arrow
-                    className='fixed left-12 top-12 z-10'
-                    directionClassName='rotate-180'
-                    onClick={scrollStart}
-                />
-                <Article title='Starting from Scratch'>
+            <Arrow
+                className='fixed left-12 top-12 z-10'
+                directionClassName='rotate-180'
+                onClick={scrollStart}
+            />
+            <div className='bg-float flex flex-col items-center bg-geometric-down md:row-start-2'>
+                <Article
+                    title='Starting from Scratch'
+                    titleLink='https://scratch.mit.edu/users/SuperScratcher8420/'>
                     <Description>
                         I first learned coding in third grade on Scratch, which
                         uses block code. While the engine has limitations, it is
-                        suprisingly versatile, allowing me to make over a
+                        surprisingly versatile, allowing me to make over a
                         hundred projects on Scratch.
                         <br />
                         <em>
                             These link to{' '}
-                            <a href='https://turbowarp.org/'>Turbowarp</a>, a
-                            Scratch mod that makes projects run faster and
+                            <a
+                                href='https://turbowarp.org/'
+                                className='underline'>
+                                Turbowarp
+                            </a>
+                            , a Scratch mod that makes projects run faster and
                             smoother
                         </em>
                     </Description>
                     <Embed url='https://turbowarp.org/415592008/embed'>
                         <Card
                             title='Seagull Shooter'
-                            img={images.seagullShooter}
+                            img={assets.seagullShooter}
                             left>
                             A shooter game where you get angry seagulls to stop
                             pecking you by launching bread at them with a
@@ -90,7 +101,7 @@ function App() {
                     <Embed
                         url='https://turbowarp.org/424751563/fullscreen?stuck'
                         nodialog>
-                        <Card title='Camera' img={images.camera} right>
+                        <Card title='Camera' img={assets.camera} right>
                             <em>Press space to take a picture.</em>A (slow)
                             camera, created within the limitations of the
                             Scratch engine. Scratch does not provide a way to
@@ -99,7 +110,7 @@ function App() {
                         </Card>
                     </Embed>
                     <Embed url='https://turbowarp.org/408509455/embed?hqpen'>
-                        <Card title='Fireworks' img={images.fireworks} left>
+                        <Card title='Fireworks' img={assets.fireworks} left>
                             <em>
                                 Click to launch fireworks or press Space to run
                                 a full sequence
@@ -113,7 +124,7 @@ function App() {
                     <Embed url='https://turbowarp.org/357110298/embed?hqpen'>
                         <Card
                             title='3D Tic-Tac-Toe'
-                            img={images.tictactoe}
+                            img={assets.tictactoe}
                             right>
                             A 3D tic-tac-toe game for two or three players. At
                             the time I didn't know how proper 3D rotation worked
@@ -126,7 +137,7 @@ function App() {
                 <Article title='HTML + Vanilla JS'>
                     <Description>
                         The next step after Scratch was HTML, CSS, and
-                        JavaScript, the langauges of websites. Without any web
+                        JavaScript, the languages of websites. Without any web
                         frameworks or external packages, I made interactive
                         webpages for a variety of purposes throughout middle
                         school. While perhaps I was not writing the most
@@ -136,21 +147,21 @@ function App() {
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/clipboard-switcher/'>
                         <Card
                             title='Clipboard Switcher'
-                            img={images.clipboard}
+                            img={assets.clipboard}
                             left>
                             A simple animated interface displaying paper on a
-                            cipboard
+                            clipboard
                         </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/ukulele-chords/'>
-                        <Card title='Ukulele Chords' img={images.ukulele} right>
+                        <Card title='Ukulele Chords' img={assets.ukulele} right>
                             Shows how to play certain chords on a ukulele.
                         </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/mc-schematic/'>
                         <Card
                             title='MC Schematic'
-                            img={images.mcschematic}
+                            img={assets.mcschematic}
                             left>
                             An app to lay out Minecraft builds and circuits
                             layer-by-layer. I made this mainly because I had
@@ -163,7 +174,7 @@ function App() {
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/chicken-machine/'>
                         <Card
                             title='Chicken Machine'
-                            img={images.chickenmachine}
+                            img={assets.chickenmachine}
                             right>
                             <em>Scroll right to view the whole machine.</em>
                             <br />A pure CSS animation of an assembly line that
@@ -180,7 +191,9 @@ function App() {
                     <Embed url='https://replit.com/@JosiahFu/Salt-Generator-4'></Embed>
                     <Embed url='https://replit.com/@JosiahFu/Projectile'></Embed>
                 </Article> */}
-                <Article title='4201 Scouting System'>
+                <Article
+                    title='4201 Scouting System'
+                    titleLink='https://github.com/4201VitruvianBots/ScoutingApp2023'>
                     <Description>
                         I am on the Data Science team on my FRC robotics team.
                         Our job is to build a scouting system for collecting
@@ -190,73 +203,105 @@ function App() {
                         worked on the most were the backend, the Admin
                         Interface, and the Picklist Interface.
                     </Description>
-                    <Card title='Admin Interface' img={images.admin} left>
+                    <Card title='Admin Interface' img={assets.admin} left>
                         Displays which scouts are connected to the system and
-                        which data has been submitted. I wrote thi entirely by
+                        which data has been submitted. I wrote this entirely by
                         myself because at our first competition I had to check
                         everything manually by constantly querying the database
                         and asking our scouters what match they were on.
                     </Card>
                     <Card
                         title='Picklist Interface'
-                        img={images.picklist}
+                        img={assets.picklist}
                         right>
                         Sorts and allows rearranging of collected data by
                         various statistics. The data is produced by running the
                         raw data through a Jupyter notebook to generate
                         additional statistics.
                     </Card>
-                    <Card title='Backend' img={images.backend} left>
+                    <Card title='Backend' img={assets.backend} left>
                         Handles all the incoming data from the scouting apps and
                         places it in the database. It also serves extra data to
                         the apps and keeps track of all connected users.
                     </Card>
                 </Article>
                 <Article title='Web Apps'>
-                    <Description>Placeholder ack</Description>
+                    <Description>
+                        Learning react opened the door to making applications
+                        far more complex than I had made before. React quickly
+                        became my go-to platform for any sort of graphical
+                        program.
+                    </Description>
                     <Embed url='https://josiahfu.github.io/math-notes'>
-                        <Card title='Math Notes' img={images.mathNotes} right>
+                        <Card title='Math Notes' img={assets.mathNotes} right>
                             I like taking digital notes, but it's more difficult
                             in math class because there are few good equation
                             editors. One equation editor I do like is the one
                             used on Desmos, so I found their library and
-                            integrated it into my own notetaking app.
+                            integrated it into my own note-taking app.
                         </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/super-tic-tac-toe'>
                         <Card
                             title='Super Tic-Tac-Toe'
-                            img={images.superTictactoe}
+                            img={assets.superTictactoe}
                             left>
                             Super tic-tac-toe is a variant of tic-tac-toe which
                             involves tic-tac-toe boards within tic-tac-toe
                             boards. Unlike the original game the strategy is
                             much more complex and therefore more fun. I created
-                            a multiplayer version where people can play with
+                            a multiplayer version for my friends to play with
                             each other on separate devices using the socket.io
-                            library. Sadly the server is no longer up, but the
-                            single-device version still works.
+                            library. Sadly the multiplayer server is no longer
+                            up, but the single-device version still works.
                         </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/all-timer'>
-                        <Card title='All-Timer' img={images.timer} right>
+                        <Card title='All-Timer' img={assets.timer} right>
                             A timer I created to scare my friends with upcoming
                             deadlines! It can be set to count down to multiple
-                            events and use multiple date formats.
+                            events and display multiple date formats.
                         </Card>
                     </Embed>
                 </Article>
-                <Article title='Minecraft Mods'>
-                    <Description>Placeholder ack</Description>
-                    <Embed url=''>
-                        {/* <Card title='Nether Archives'></Card> */}
+                <Article
+                    title='Minecraft Mods'
+                    titleLink='https://modrinth.com/user/ThePotatoArchivist'>
+                    <Description>
+                        My most recent projects are in the form of Minecraft
+                        mods: code to alter the game of Minecraft for a variety
+                        of purposes, including adding new content and tweaking
+                        core mechanics. I have only created mods for the past
+                        two months but I already have over a thousand downloads.
+                    </Description>
+                    <Embed
+                        url='https://modrinth.com/mod/nether-archives'
+                        nodialog>
+                        <Card title='Nether Archives Mod' img={assets.archives}>
+                            Some miscellaneous content themed around the Nether
+                            dimension.
+                        </Card>
                     </Embed>
-                    <Embed url=''></Embed>
-                    <Embed url=''></Embed>
+                    <Embed
+                        url='https://modrinth.com/mod/totally-balanced-musket'
+                        nodialog>
+                        <Card title='Musket Mod' img={assets.musket}>
+                            By request of one of my friends, I added a musket to
+                            Minecraft.
+                        </Card>
+                    </Embed>
+                    <Embed url='https://modrinth.com/mod/superhot' nodialog>
+                        <Card title='Superhot' img={assets.superhot}>
+                            <p>
+                                Inspired by a video I saw, I implemented the
+                                core mechanic from the game <em>SUPERHOT</em>:
+                                time moves only when you move.
+                            </p>
+                        </Card>
+                    </Embed>
                 </Article>
             </div>
-
-            <div className='bg-float flex flex-col items-stretch gap-16 bg-geometric-right p-8 md:col-start-2 md:row-start-1 md:w-max md:flex-row md:items-center md:overflow-y-hidden md:p-64 md:*:flex-shrink-0'>
+            <div className='bg-float flex flex-col items-stretch gap-16 bg-geometric-right p-8 md:col-start-2 md:row-start-1 md:w-max md:flex-row md:items-center md:overflow-y-hidden md:px-64'>
                 <div className='max-w-3xl p-32 text-xl'>
                     <h2 className='my-8 text-center text-4xl'>Desmos</h2>
                     <p>
@@ -269,63 +314,72 @@ function App() {
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/lpe1hwpbvx.png'
                         title='3D Island'>
-                        3D engine!
+                        A low poly floating island rendered with a 3D engine
+                        built from scratch. It features different colors,
+                        shading, translucency, animation, and mouse control. I
+                        made this for the 2022 Desmos Art Contest.
                     </Card>
                 </Embed>
                 <Embed url='dna.webm'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/bzyyvej3ag.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='DNA Replication'>
+                        An animation I made for biology class when I didn't want
+                        to do a coloring sheet.
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/2wstj2efds'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/2wstj2efds.png'
                         title='Atom Models'>
-                        Atom Models
-                    </Card>
-                </Embed>
-                <Embed url='https://www.desmos.com/calculator/ykj4gctfwl'>
-                    <Card
-                        img='https://www.desmos.com/calc_thumbs/production/ykj4gctfwl.png'
-                        title='Atom Models'>
-                        Atom Models
+                        Simple animation of the different atom model theories
+                        over time.
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/7ykgc1wnoc'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/7ykgc1wnoc.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='Spaceship Game'>
+                        Move the joystick to fly through the rings in space and
+                        gain points!
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/wcate9j3kt'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/wcate9j3kt.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='HSV Color Cylinder'>
+                        A cylinder representing the HSV color space. Drag the
+                        points to pick different colors.
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/w0qggxbvet'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/w0qggxbvet.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='Dilution Calculator'>
+                        A graphical dilution calculator I made for chemistry.
+                        Drag the sliders to adjust the variables.
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/obmoil6kcr'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/obmoil6kcr.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='Fire Animation'>
+                        Fire Animation
                     </Card>
                 </Embed>
                 <Embed url='https://www.desmos.com/calculator/zutvfcydsx'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/zutvfcydsx.png'
-                        title='Atom Models'>
-                        Atom Models
+                        title='Polygram Animation'>
+                        A mesmerizing animation made from simply points rotating
+                        around a circle.
+                    </Card>
+                </Embed>
+                <Embed url='https://www.desmos.com/calculator/ykj4gctfwl'>
+                    <Card
+                        img='https://www.desmos.com/calc_thumbs/production/ykj4gctfwl.png'
+                        title='Hexapiston'>
+                        6 pistons rotating a shaft
                     </Card>
                 </Embed>
             </div>
