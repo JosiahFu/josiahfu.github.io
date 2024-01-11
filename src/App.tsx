@@ -9,21 +9,58 @@ import { useEventUpdatedValue } from './useEventValue.ts';
 import ScrollLocker from './components/ScrollLocker.tsx';
 import Description from './components/Description.tsx';
 import Logo from './assets/logo.svg?react';
+import Arrow from './components/Arrow.tsx';
 
 function App() {
     const breakMd =
         useEventUpdatedValue('resize', () => window.innerWidth) > 768; // Equivalent to tailwind's md: modifier
 
+    const scrollRight = () =>
+        window.scrollBy({
+            left: (window.innerWidth * 3) / 4,
+            behavior: 'smooth',
+        });
+
+    const scrollDown = () =>
+        window.scrollBy({
+            top: (window.innerHeight * 3) / 4,
+            behavior: 'smooth',
+        });
+
+    const scrollStart = () => {
+        window.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <main className='grid grid-cols-1 text-gray-100 md:grid-cols-[100vw_auto] md:grid-rows-[100vh_auto]'>
             {breakMd && <ScrollLocker />}
-            <Section className='bg-float grid items-center overflow-hidden bg-banner p-16 lg:px-64'>
+            <Section className='bg-float z-20 grid items-center overflow-hidden bg-banner p-16 lg:px-64'>
                 <h1 className='rounded-3xl bg-white/10 p-16 text-center text-8xl backdrop-blur-md'>
                     <Logo className='mr-8 inline-block h-24' />
                     Josiah Fu
                 </h1>
+                <Arrow
+                    className='translate-center absolute right-12 top-1/2 hidden cursor-pointer md:block'
+                    directionClassName='-rotate-45 '
+                    onClick={scrollRight}
+                />
+                <Arrow
+                    className='translate-center absolute bottom-12 left-1/2 hidden cursor-pointer md:block'
+                    directionClassName='rotate-45'
+                    onClick={scrollDown}
+                />
             </Section>
-            <div className='bg-float flex flex-col items-center bg-geometric-down md:row-start-2'>
+            {/* <Arrow className='rotate-135 fixed left-12 top-12' onClick={scrollStart} /> */}
+            <div className='bg-float flex flex-col items-center overflow-hidden bg-geometric-down md:row-start-2'>
+                <Arrow
+                    className='fixed left-12 top-12 z-10'
+                    directionClassName='rotate-180'
+                    onClick={scrollStart}
+                />
                 <Article title='Starting from Scratch'>
                     <Description>
                         I first learned coding in third grade on Scratch, which

@@ -31,6 +31,9 @@ export default {
             fontFamily: {
                 sans: ['Raleway', ...defaultTheme.fontFamily.sans],
             },
+            rotate: {
+                135: '135deg',
+            },
         },
     },
     plugins: [],

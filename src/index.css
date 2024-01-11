@@ -29,4 +29,8 @@
     .bg-float {
         @apply bg-cover bg-fixed bg-center;
     }
+    
+    .translate-center {
+        @apply -translate-x-1/2 -translate-y-1/2
+    }
 }
