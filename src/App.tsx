@@ -9,19 +9,21 @@ import ScrollLocker from './components/ScrollLocker.tsx';
 
 function App() {
     const breakMd =
-        useEventUpdatedValue('resize', () => window.innerWidth) > 1024;
+        useEventUpdatedValue('resize', () => window.innerWidth) > 768; // Equivalent to tailwind's md: modifier
 
     return (
         <main className='grid grid-cols-1 md:grid-cols-[100vw_auto] md:grid-rows-[100vh_auto] text-gray-100'>
             {breakMd && <ScrollLocker />}
-            <Section className='grid items-center bg-banner'>
-                <h1 className='text-center text-8xl'>Josiah Fu</h1>
+            <Section className='grid items-center overflow-hidden bg-banner bg-float p-16'>
+                <h1 className='text-center text-8xl backdrop-blur-md p-16 rounded-3xl bg-white/10'>
+                    Josiah Fu
+                </h1>
             </Section>
-            <div className='md:row-start-2 flex flex-col items-center'>
+            <div className='md:row-start-2 flex flex-col items-center bg-geometric-down bg-float'>
                 <Article title='Starting from Scratch'>
                     <p className='col-span-full'>
-                        I first learned coding on Scratch, which uses block
-                        code. While the engine is certainly limited, it is
+                        I first learned coding in third grade on Scratch, which
+                        uses block code. While the engine has limitations, it is
                         suprisingly versatile, allowing me to make over a
                         hundred projects on Scratch.
                         <br />
@@ -87,43 +89,102 @@ function App() {
                     </Embed>
                 </Article>
                 <Article title='HTML + Vanilla JS'>
-                    <p className='col-span-full'>Placeholder</p>
+                    <p className='col-span-full'>
+                        The next step after Scratch was HTML, CSS, and
+                        JavaScript, the langauges of websites. Without any web
+                        frameworks or external packages, I made interactive
+                        webpages for a variety of purposes throughout middle
+                        school. While perhaps I was not writing the most
+                        maintainable code, I was always experimenting, building
+                        and learning.
+                    </p>
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/clipboard-switcher/'>
                         <Card
                             title='Clipboard Switcher'
                             img={images.clipboard}
-                            className='md:max-lg:stagger-right'></Card>
+                            className='md:max-lg:stagger-right'>
+                            A simple animated interface displaying paper on a
+                            cipboard
+                        </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/ukulele-chords/'>
                         <Card
                             title='Ukulele Chords'
                             img={images.ukulele}
-                            className='md:max-lg:stagger-left'></Card>
+                            className='md:max-lg:stagger-left'>
+                            Shows how to play certain chords on a ukulele.
+                        </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/mc-schematic/'>
                         <Card
                             title='MC Schematic'
                             img={images.mcschematic}
-                            className='md:max-lg:stagger-left'></Card>
+                            className='md:max-lg:stagger-left'>
+                            An app to lay out Minecraft builds and circuits
+                            layer-by-layer. I made this mainly because I had
+                            time limits on gaming, so I could figure out the
+                            construction before spending time building it.
+                            Features different orientations per block as well as
+                            save/load functionality.
+                        </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/webpage-projects-archive/chicken-machine/'>
                         <Card
                             title='Chicken Machine'
                             img={images.chickenmachine}
-                            className='md:max-lg:stagger-right'></Card>
+                            className='md:max-lg:stagger-right'>
+                            <em>Scroll right to view the whole machine.</em>
+                            <br />A pure CSS animation of an assembly line that
+                            produces a chicken. Originally inspired by the
+                            assembly lines I would draw on birthday cards. If
+                            you wait long enough you might see an easter egg on
+                            the X-Ray
+                        </Card>
                     </Embed>
                 </Article>
-                <Article title='Java Experiments'>
+                {/* <Article title='Java Experiments'>
                     <Embed url='https://replit.com/@JosiahFu/Ascii-Graphics-Library'></Embed>
                     <Embed url='https://replit.com/@JosiahFu/Multiplayer-Monopoly'></Embed>
                     <Embed url='https://replit.com/@JosiahFu/Salt-Generator-4'></Embed>
                     <Embed url='https://replit.com/@JosiahFu/Projectile'></Embed>
+                </Article> */}
+                <Article title='4201 Scouting System'>
+                    <p className='col-span-full'>
+                        I am on the Data Science team on my FRC robotics team.
+                        Our job is to build a scouting system for collecting
+                        data on other teams' robots to inform strategy. Our
+                        system last year consisted of React App frontends, a
+                        Python/Flask backend, and a MySQL Database. The parts I
+                        worked on the most were the backend, the Admin
+                        Interface, and the Picklist Interface.
+                    </p>
+                    <Card title='Admin Interface' img={images.admin}>
+                        Displays which scouts are connected to the system and
+                        which data has been submitted. I wrote thi entirely by
+                        myself because at our first competition I had to check
+                        everything manually by constantly querying the database
+                        and asking our scouters what match they were on.
+                    </Card>
+                    <Card title='Picklist Interface' img={images.picklist}>
+                        Sorts and allows rearranging of collected data by
+                        various statistics. The data is produced by running the
+                        raw data through a Jupyter notebook to generate
+                        additional statistics.
+                    </Card>
+                    <Card title='Backend' img={images.backend}>
+                        Handles all the incoming data from the scouting apps and
+                        places it in the database. It also serves extra data to
+                        the apps and keeps track of all connected users.
+                    </Card>
                 </Article>
-                <Article title='4201 Scouting System'></Article>
                 <Article title='Web Apps'>
                     <Embed url='https://josiahfu.github.io/math-notes'>
-                        <Card title='Math Notes' img='the_image'>
-                            Potat oes
+                        <Card title='Math Notes' img={images.mathNotes}>
+                            I like taking digital notes, but it's more difficult
+                            in math class because there are few good equation
+                            editors. One equation editor I do like is the one
+                            used on Desmos, so I found their library and
+                            integrated it into my own notetaking app.
                         </Card>
                     </Embed>
                     <Embed url='https://josiahfu.github.io/super-tic-tac-toe'></Embed>
@@ -136,7 +197,15 @@ function App() {
                 </Article>
             </div>
 
-            <div className='flex flex-col items-stretch md:flex-row md:row-start-1 md:col-start-2 md:*:flex-shrink-0 md:overflow-y-hidden md:items-center md:w-max gap-16 p-8 md:p-64'>
+            <div className='flex flex-col items-stretch md:flex-row md:row-start-1 md:col-start-2 md:*:flex-shrink-0 md:overflow-y-hidden md:items-center md:w-max gap-16 p-8 md:p-64 bg-geometric-right bg-float'>
+                <div className='max-w-3xl p-32 text-xl'>
+                    <h2 className='text-center text-4xl my-8'>Desmos</h2>
+                    <p>
+                        Alongside my coding projects, I've spent many years
+                        making projects on Desmos, an online graphing
+                        calculator.
+                    </p>
+                </div>
                 <Embed url='https://www.desmos.com/calculator/lpe1hwpbvx'>
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/lpe1hwpbvx.png'

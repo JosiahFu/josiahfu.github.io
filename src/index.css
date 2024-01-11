@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply bg-gray-900;
+    h1, h2 {
+        @apply text-spring-green-400;
     }
 }
 
@@ -19,5 +19,9 @@
     
     .stagger-right {
         @apply col-span-2 col-start-2;
+    }
+    
+    .bg-float {
+        @apply bg-fixed bg-cover bg-center;
     }
 }

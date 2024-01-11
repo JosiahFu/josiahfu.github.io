@@ -15,9 +15,9 @@ function Card({
 
     return (
         <div
-            className={`${className} bg-gray-400/20 p-8 rounded-3xl border-white/80 border flex flex-col gap-4 cursor-pointer ${
+            className={`${className} bg-white/10 p-8 rounded-3xl flex flex-col gap-4 border-2px border-spring-green-400 backdrop-blur-md ${
                 handleClick
-                    ? 'hover:shadow-md hover:shadow-white/50 transition'
+                    ? 'hover:shadow-lg hover:shadow-white/50 cursor-pointer transition duration-500'
                     : ''
             }`}
             onClick={handleClick}>

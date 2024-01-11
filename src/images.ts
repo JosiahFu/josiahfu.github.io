@@ -8,3 +8,7 @@ export { default as mcschematic } from './assets/mc_schematic.png';
 export { default as chickenmachine } from './assets/chicken_machine.png';
 export { default as ukulele } from './assets/ukulele.png';
 export { default as clipboard } from './assets/clipboard.png';
+export { default as admin } from './assets/admin.png';
+export { default as picklist } from './assets/picklist.png';
+export { default as backend } from './assets/backend.png';
+export { default as mathNotes } from './assets/mathnotes.png';
