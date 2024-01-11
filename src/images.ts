@@ -12,3 +12,5 @@ export { default as admin } from './assets/admin.png';
 export { default as picklist } from './assets/picklist.png';
 export { default as backend } from './assets/backend.png';
 export { default as mathNotes } from './assets/mathnotes.png';
+export { default as timer } from './assets/timer.png';
+export { default as superTictactoe } from './assets/supertictactoe.png';

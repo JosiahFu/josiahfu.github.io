@@ -10,8 +10,14 @@ function ScrollLocker() {
     const [lock, setLock] = useState<'x' | 'y' | undefined>(undefined);
 
     useEffect(() => {
-        if (lock === 'x') document.body.style.overflowX = 'hidden';
-        if (lock === 'y') document.body.style.overflowY = 'hidden';
+        if (lock === 'x') {
+            window.scrollTo({ left: 0 });
+            document.body.style.overflowX = 'hidden';
+        }
+        if (lock === 'y') {
+            window.scrollTo({ top: 0 });
+            document.body.style.overflowY = 'hidden';
+        }
         return () => {
             document.body.style.overflowX = '';
             document.body.style.overflowY = '';
