@@ -43,7 +43,7 @@ function Embed({
                     ref={dialogRef}
                     onClick={() => setOpen(false)}
                     onClose={() => setOpen(false)}
-                    className='bg-transparent backdrop:bg-black/50 overflow-visible'>
+                    className='overflow-visible bg-transparent backdrop:bg-black/50'>
                     {
                         open && (
                             <iframe
@@ -56,7 +56,7 @@ function Embed({
                     }
                     <button
                         onClick={() => setOpen(false)}
-                        className='absolute -right-4 -top-4 w-8 h-8 bg-gray-500 text-white rounded-full'>
+                        className='absolute -right-4 -top-4 h-8 w-8 rounded-full bg-gray-500 text-white'>
                         X
                     </button>
                 </dialog>

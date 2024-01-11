@@ -6,7 +6,7 @@ function Description({
 }: PropsWithChildren<{ className?: string }>) {
     return (
         <p
-            className={`${className} col-span-full max-w-2xl justify-self-center mb-16`}>
+            className={`${className} col-span-full mb-16 max-w-2xl justify-self-center`}>
             {children}
         </p>
     );

@@ -19,9 +19,9 @@ function Card({
 
     return (
         <div
-            className={`${className} bg-white/10 p-8 rounded-3xl flex flex-col gap-4 border-2px border-spring-green-400 backdrop-blur-md ${
+            className={`${className} flex flex-col gap-4 rounded-3xl border-2px border-spring-green-400 bg-white/10 p-8 backdrop-blur-md ${
                 handleClick
-                    ? 'hover:shadow-lg hover:shadow-white/50 cursor-pointer hover:-translate-y-2 transition duration-500'
+                    ? 'cursor-pointer transition duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-white/50'
                     : ''
             } ${left ? 'md:max-lg:stagger-left' : ''} ${
                 right ? 'md:max-lg:stagger-right' : ''

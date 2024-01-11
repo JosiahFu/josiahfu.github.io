@@ -15,15 +15,15 @@ function App() {
         useEventUpdatedValue('resize', () => window.innerWidth) > 768; // Equivalent to tailwind's md: modifier
 
     return (
-        <main className='grid grid-cols-1 md:grid-cols-[100vw_auto] md:grid-rows-[100vh_auto] text-gray-100'>
+        <main className='grid grid-cols-1 text-gray-100 md:grid-cols-[100vw_auto] md:grid-rows-[100vh_auto]'>
             {breakMd && <ScrollLocker />}
-            <Section className='grid items-center overflow-hidden bg-banner bg-float p-16 lg:px-64'>
-                <h1 className='text-center text-8xl backdrop-blur-md p-16 rounded-3xl bg-white/10'>
-                    <Logo className='h-24 inline-block mr-8' />
+            <Section className='bg-float grid items-center overflow-hidden bg-banner p-16 lg:px-64'>
+                <h1 className='rounded-3xl bg-white/10 p-16 text-center text-8xl backdrop-blur-md'>
+                    <Logo className='mr-8 inline-block h-24' />
                     Josiah Fu
                 </h1>
             </Section>
-            <div className='md:row-start-2 flex flex-col items-center bg-geometric-down bg-float'>
+            <div className='bg-float flex flex-col items-center bg-geometric-down md:row-start-2'>
                 <Article title='Starting from Scratch'>
                     <Description>
                         I first learned coding in third grade on Scratch, which
@@ -219,9 +219,9 @@ function App() {
                 </Article>
             </div>
 
-            <div className='flex flex-col items-stretch md:flex-row md:row-start-1 md:col-start-2 md:*:flex-shrink-0 md:overflow-y-hidden md:items-center md:w-max gap-16 p-8 md:p-64 bg-geometric-right bg-float'>
+            <div className='bg-float flex flex-col items-stretch gap-16 bg-geometric-right p-8 md:col-start-2 md:row-start-1 md:w-max md:flex-row md:items-center md:overflow-y-hidden md:p-64 md:*:flex-shrink-0'>
                 <div className='max-w-3xl p-32 text-xl'>
-                    <h2 className='text-center text-4xl my-8'>Desmos</h2>
+                    <h2 className='my-8 text-center text-4xl'>Desmos</h2>
                     <p>
                         Alongside my coding projects, I've spent many years
                         making projects on Desmos, an online graphing

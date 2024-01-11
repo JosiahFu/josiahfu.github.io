@@ -8,8 +8,8 @@ function Article({
 }: PropsWithChildren<{ title: string; className?: string }>) {
     return (
         <Section
-            className={`${className} grid grid-cols-1 md:stagger lg:grid-cols-2 gap-8 max-w-[80rem] p-8 md:p-16 content-center`}>
-            <h2 className='text-4xl text-center col-span-full'>{title}</h2>
+            className={`${className} md:stagger grid max-w-[80rem] grid-cols-1 content-center gap-8 p-8 md:p-16 lg:grid-cols-2`}>
+            <h2 className='col-span-full text-center text-4xl'>{title}</h2>
             {children}
         </Section>
     );
