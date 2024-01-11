@@ -25,6 +25,9 @@ export default {
                     950: '#00331a',
                 },
             },
+            spacing: {
+                '2px': '2px',
+            },
             borderWidth: {
                 '2px': '2px',
             },

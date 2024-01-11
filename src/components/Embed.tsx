@@ -56,8 +56,9 @@ function Embed({
                     }
                     <button
                         onClick={() => setOpen(false)}
-                        className='absolute -right-4 -top-4 h-8 w-8 rounded-full bg-gray-500 text-white'>
-                        X
+                        className='absolute -right-4 -top-4 h-8 w-8 rounded-full bg-gray-500 transition hover:scale-110'>
+                        <div className='h-2px absolute left-2 right-2 top-1/2 -translate-y-1/2 rotate-45 bg-white' />
+                        <div className='h-2px rotate-135 absolute left-2 right-2 top-1/2 -translate-y-1/2 bg-white' />
                     </button>
                 </dialog>
             )}

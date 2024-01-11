@@ -63,8 +63,11 @@ function App() {
             <Arrow
                 className='fixed left-12 top-12 z-10'
                 directionClassName='rotate-180'
-                onClick={scrollStart}
-            />
+                onClick={scrollStart}>
+                <span className='absolute left-12 top-12 w-24 rounded-lg bg-white/10 p-4 text-center backdrop-blur-md'>
+                    Back
+                </span>
+            </Arrow>
             <div className='bg-float flex flex-col items-center bg-geometric-down md:row-start-2'>
                 <Article
                     title='Starting from Scratch'
@@ -371,7 +374,7 @@ function App() {
                     <Card
                         img='https://www.desmos.com/calc_thumbs/production/zutvfcydsx.png'
                         title='Polygram Animation'>
-                        A mesmerizing animation made from simply points rotating
+                        A mesmerizing animation made simply from points rotating
                         around a circle.
                     </Card>
                 </Embed>
