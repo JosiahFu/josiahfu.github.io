@@ -275,7 +275,7 @@ function App() {
                         mods: code to alter the game of Minecraft for a variety
                         of purposes, including adding new content and tweaking
                         core mechanics. I have only created mods for the past
-                        two months but I already have over a thousand downloads.
+                        two months but I already have over two thousand downloads.
                     </Description>
                     <Embed
                         url='https://modrinth.com/mod/nether-archives'
