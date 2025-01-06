@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redirect</title>
+    </head>
+    <body>
+        <noscript>
+            <p>This content has been moved. Please go to the appropriate subpage under <a href="<%= origin %>"><%= shortOrigin %></a>.</p>
+        </noscript>
+        <script>
+            'use strict'
+
+            const url = `<%= origin %>${window.location.pathname}${window.location.search}${window.location.hash}`
+            window.location.href = url
+
+            // Add text if redirect fails
+            const p = document.createElement('p')
+            p.appendChild(document.createTextNode('This content has moved. Please follow this '))
+            const a = document.createElement('a')
+            a.appendChild(document.createTextNode('link'))
+            a.href = url
+            p.appendChild(a)
+            p.appendChild(document.createTextNode('.'))
+            document.body.appendChild(p)
+        </script>
+    </body>
+</html>

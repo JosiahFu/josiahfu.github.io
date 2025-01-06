@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redirect</title>
+        <meta http-equiv="refresh" content="0; url=<%= url %>" />
+    </head>
+    <body>
+        <p>This content has been moved. Please follow this <a href="<%= url %>">link</a>.</p>
+        <script>
+            'use strict'
+            window.location.href = "<%= url %>"
+        </script>
+    </body>
+</html>
