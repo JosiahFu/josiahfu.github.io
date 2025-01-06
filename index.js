@@ -1,5 +1,5 @@
 import { compile, render } from 'ejs'
-import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, copyFileSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, copyFileSync, existsSync } from 'fs'
 import { dirname } from 'path'
 
 const paths = [
@@ -31,11 +31,13 @@ const origin = `https://${shortOrigin}`
 
 const template = compile(readFileSync('template.html', { encoding: 'utf-8' }))
 
-for (const path of readdirSync('dist'))
-    rmSync(`dist/${path}`, { recursive: true, force: true })
+if (existsSync('dist'))
+    for (const path of readdirSync('dist'))
+        rmSync(`dist/${path}`, { recursive: true, force: true })
 
-for (const path of readdirSync('static'))
-    copyFileSync(`static/${path}`, `dist/${path}`)
+if (existsSync('static'))
+    for (const path of readdirSync('static'))
+        copyFileSync(`static/${path}`, `dist/${path}`)
 
 for (const path of paths) {
     const filename = `dist/${path}.html`
