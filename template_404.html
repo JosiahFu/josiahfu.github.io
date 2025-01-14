@@ -13,7 +13,7 @@
             'use strict'
 
             const url = `<%= origin %>${window.location.pathname}${window.location.search}${window.location.hash}`
-            window.location.href = url
+            window.location.replace(url)
 
             // Add text if redirect fails
             const p = document.createElement('p')
