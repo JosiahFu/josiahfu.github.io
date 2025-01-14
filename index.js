@@ -47,4 +47,4 @@ for (const path of paths) {
     }))
 }
 
-// writeFileSync('dist/404.html', render(readFileSync('template_404.html', { encoding: 'utf-8' }), { origin, shortOrigin }))
+writeFileSync('dist/404.html', render(readFileSync('template_404.html', { encoding: 'utf-8' }), { origin, shortOrigin }))
